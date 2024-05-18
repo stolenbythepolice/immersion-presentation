@@ -1,0 +1,171 @@
+html {
+  font-size: 200%;
+}
+
+* {
+  -webkit-print-color-adjust: exact;
+  -webkit-backface-visibility: hidden;
+  /* transform: translateZ(0px); */
+}
+
+ol {
+  margin: 1em;
+  list-style: none;
+  counter-reset: list-item-counter;
+}
+
+ul {
+  margin: 1em 0em;
+  list-style: disc;
+}
+
+ol li {
+  counter-increment: list-item-counter;
+}
+
+ol li::before {
+  content: counter(list-item-counter) '. ';
+}
+
+p {
+  margin: 1em 0;
+}
+
+body {
+  /* This makes svg the same color as the surrounding text! */
+  fill: currentColor;
+  line-height: 1.35;
+  color: black;
+  background: white;
+}
+
+/* These are classnames from the citation plugin */
+.csl-bib-body,
+.csl-entry {
+  display: inline;
+}
+
+/* This makes custom arrows show up good! */
+svg marker {
+  overflow: visible;
+}
+
+svg {
+  overflow: visible;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.animation-editor {
+  font-size: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+
+.animation-editor .colors {
+  background: #4a5568;
+  position: sticky;
+  top: 3em;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.animation-editor .colors .color {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin: 0.5em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.animation {
+  border: 1px solid gray;
+  margin: 1em;
+  padding: 0.5em;
+  padding-bottom: 1em;
+  position: relative;
+}
+
+.automorph {
+  cursor: pointer;
+}
+
+.bg-blue {
+  background-color: #11172e;
+}
+
+.text-green {
+  color: #00d56f;
+}
+
+.bg-green {
+  background: #00d56f;
+}
+
+.theme-shadow {
+  box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.1);
+}
+
+.theme-border {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.theme-font-open {
+  font-family: 'Open Sans';
+}
+
+ul {
+  padding-left: 2em;
+}
+
+code {
+  font-family: monospace;
+  font-size: 100%;
+}
+
+/* .slide { */
+/*     cursor: none; */
+/* } */
+
+.lucida {
+  font-family: 'Lucida sans', sans-serif;
+}
+
+.theme-gray {
+  color: #918f90;
+}
+.theme-dark-gray {
+  color: #5a5758;
+}
+
+code {
+  font-family: monospace;
+  font-size: 100%;
+}
+
+.theme-font-open {
+  font-family: 'Open Sans';
+}
+
+.theme-border {
+  border: 1px solid black;
+}
