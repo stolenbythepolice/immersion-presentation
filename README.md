@@ -34,7 +34,7 @@ In the root of your presentation, open the `package.json` file and replace the "
 ```json
   "dependencies": {
     "cra-template-immersion": "1.0.3",
-	"immersion-presentation": "1.1.5",
+    "immersion-presentation": "1.1.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "^4.0.3"
