@@ -26,6 +26,47 @@ npx create-react-app title-of-your-presentation --template immersion
 This will create a directory named `title-of-your-presentation`.
 Once in the directory execute `yarn start` and the presentation will open up in a browser window. Upon changing the contents, the browser will automatically reload.
 
+### Notes from the future
+
+This repository makes use of the now-obsolete React v16. Due to the React team being bitchy about it and not allowing the automated use of the older tools, you will have to manually adjust a few things:
+
+In the root of your presentation, open the `package.json` file and replace the "dependencies" section with the following:
+```json
+  "dependencies": {
+    "cra-template-immersion": "1.0.3",
+    "immersion-presentation": "1.1.5",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "^4.0.3"
+  },
+```
+
+Then launch
+```bash
+npm i
+```
+
+If you are using NodeJs version 17 or above, make sure to set the environment variable `NODE_OPTIONS` to `--openssl-legacy-provider`
+
+On Unix-like (Linux, macOS, Git bash, etc.):
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
+On Windows command prompt:
+```cmd
+set NODE_OPTIONS=--openssl-legacy-provider
+```
+
+On PowerShell:
+```poweshell
+$env:NODE_OPTIONS = "--openssl-legacy-provider"
+```
+
+Source: (Stackoverflow)[https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported]
+
+When you are done, just run `yarn start`
+
 ## License
 
 MIT © [gillescastel](https://github.com/gillescastel)
