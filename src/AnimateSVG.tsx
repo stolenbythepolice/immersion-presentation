@@ -95,7 +95,7 @@ const TIMING = 0.4
 // make awaitable?
 function update(
   wrapper: HTMLDivElement,
-  step: any,
+  step: {[text_key: string]: string | AnimateSVGStep},
   replaceImediately: boolean
 ) {
   for (const key in step) {
@@ -103,6 +103,9 @@ function update(
       continue
     }
     if (key.startsWith('text:')) {
+      const value = step[key];
+      if (typeof value != 'string')
+        throw "'text:*' keys must be of type string";
       const id = key.replace(/^text:/, '')
       const textSvg = wrapper.querySelector(`svg#${id}`) as SVGSVGElement
       if (textSvg) {
@@ -113,7 +116,7 @@ function update(
         // TODO: use that animation groups database!
         animate(
           textSvg,
-          step[key] || '',
+          value || '',
           replaceImediately,
           0.3,
           ({ width, height, viewBox }) => {
@@ -126,10 +129,15 @@ function update(
       }
     } else {
       const ele = wrapper.querySelector(`#${key}`) as SVGElement
-      const { css = {}, ...rest } = step[key]
+      
+      const value = step[key];
+      if (!(value instanceof Object))
+        throw "svg id keys must be of type AnimateSVGStep"
+
+      const { css = {}, ...rest } = value
       if (ele) {
         for (const key in css) {
-          ele.style[key as any] = (css as { [index: string]: any })[key]
+          ele.style[key] = (css[key])
         }
 
         if (replaceImediately) {
@@ -158,7 +166,7 @@ export type AnimateSVGStep = {
 
 type AnimateSVGProps = {
   src: string
-  step: AnimateSVGStep
+  step: {[text_key: string]: string | AnimateSVGStep}
   width: string | number
   height: string | number
   style: React.CSSProperties
